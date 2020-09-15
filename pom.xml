@@ -23,6 +23,7 @@
 		<module>consumer1</module>
 		<module>FeignClient1</module>
         <module>FeignClient2</module>
+        <module>provider3</module>
     </modules>
 
 	<name>SpringCloudDemo</name>
