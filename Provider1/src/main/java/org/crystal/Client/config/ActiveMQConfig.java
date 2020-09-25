@@ -4,6 +4,7 @@ import javax.jms.ConnectionFactory;
 import javax.jms.JMSException;
 import javax.jms.Session;
 
+import org.apache.activemq.ActiveMQPrefetchPolicy;
 import org.apache.activemq.RedeliveryPolicy;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -30,6 +31,10 @@ public class ActiveMQConfig {
 	// 在Topic模式中，对消息的监听需要对containerFactory进行配置
 	@Bean("topicListener")
 	public JmsListenerContainerFactory<?> topicJmsListenerContainerFactory(ConnectionFactory connectionFactory) throws JMSException {
+
+		ActiveMQPrefetchPolicy prefetchPolicy = new ActiveMQPrefetchPolicy();
+		prefetchPolicy.setTopicPrefetch(10);//每次取10条消息
+
 		DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
 		factory.setClientId("AAAA");
 		factory.setPubSubDomain(true);//发布订阅模式

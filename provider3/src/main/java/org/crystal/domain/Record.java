@@ -21,4 +21,6 @@ public class Record {
 
    private LocalDateTime createTime;
 
+   private String cardCode;
+
 }

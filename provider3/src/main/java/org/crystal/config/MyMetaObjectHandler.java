@@ -4,6 +4,9 @@ import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import org.apache.ibatis.reflection.MetaObject;
 import org.springframework.stereotype.Component;
 
+/**
+ * mybatis-plus  乐观锁相关
+ */
 @Component
 public class MyMetaObjectHandler implements MetaObjectHandler {
     @Override

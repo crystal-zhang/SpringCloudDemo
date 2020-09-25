@@ -14,9 +14,9 @@ public class VouchersController {
     @Autowired
     private VouchersService vouchersService;
     @PostMapping("exchange")
-    public String exchange(@RequestBody Vouchers vouchers){
+    public String exchange(@RequestBody Vouchers vouchers) throws Exception {
         String code = vouchers.getCode();
         log.info("商城券编码:{}",code);
-        return vouchersService.exchange(code);
+        return vouchersService.receiveCrad(code);
     }
 }
